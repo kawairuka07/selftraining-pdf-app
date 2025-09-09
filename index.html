@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>自主トレPDF作成ツール</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- jsPDFのCDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.0"></script>
+  <script type="module" src="js/script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>自主トレーニング作成ツール</h1>
+    <p>最大4種類まで選んで、回数や説明文を編集してPDFを作成できます。</p>
+    <p>用紙上部に患者名、下部に作成者名を入れられます。</p>
+    <div class="form">
+      <label>用紙方向:
+        <select id="orientation">
+          <option value="portrait">A4縦</option>
+          <option value="landscape">A4横</option>
+        </select>
+      </label>
+      <label>患者名：<input type="text" id="patientName"></label>
+      <label>作成者名：<input type="text" id="authorName"></label>
+      <div class="filter">
+      <!-- 検索とフィルター -->
+        <input type="text" id="searchBox" placeholder="運動名を検索..."/>
+        <label for="">部位：
+          <select id="partFilter">
+            <option value="">すべて</option>
+            <option value="上肢">上肢</option>
+            <option value="下肢">下肢</option>
+            <option value="体幹">体幹</option>
+          </select>
+        </label>
+        <label for="">肢位：
+          <select id="positionFilter">
+            <option value="">すべて</option>
+            <option value="立位">立位</option>
+            <option value="座位">座位</option>
+            <option value="臥位">臥位</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <h3>運動リスト</h3>
+        <div id="exerciseList"></div>
+      </div>
+      <div>
+        <h3>選択済み運動(順番変更可能)</h3>
+        <p>矢印(↑↓)をクリックすることで運動の順番を変更できます。</p>
+        <div class="selected" id="selectedList"></div>
+      </div>
+      <div class="button">
+        <button class="prev Btn" id="previewBtn">PDFをプレビュー</button>
+        <button class="gene Btn" id="generateBtn">PDFをダウンロード</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
