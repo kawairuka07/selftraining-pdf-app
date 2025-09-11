@@ -70,3 +70,35 @@ button:hover {
 .button {
   text-align: center;
 }
+
+/* 📱 スマホ用レイアウト */
+@media (min-width: 768px) {
+  body {
+    padding: 20px;
+  }
+  .container {
+    max-width: 900px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  .form {
+    padding: 20px;
+  }
+  .filter {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .button {
+    flex-direction: row;
+  }
+  .exercise-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .exercise-item img {
+    max-width: 150px;
+  }
+}
